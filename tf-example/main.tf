@@ -23,7 +23,7 @@ resource "aws_instance" "app_server" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t3.micro"
   key_name               = "githubworkflow-ec2-key"
-  vpc_security_group_ids = "sg-01cab0749958c8eb9"
+  vpc_security_group_id  = "sg-01cab0749958c8eb9"
   subnet_id              = "subnet-0d057951ed8b3350a"
 
   tags = {
