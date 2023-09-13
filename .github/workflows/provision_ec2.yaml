@@ -6,7 +6,7 @@ on:
       ec2-name:
         description: EC2 name
         required: true
-        default: 'App Server'
+        default: 'App Server New'
         type: string
 jobs:
   provision-ec2:
