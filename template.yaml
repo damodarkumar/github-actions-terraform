@@ -1,72 +1,32 @@
 apiVersion: scaffolder.backstage.io/v1beta3
-# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
 kind: Template
 metadata:
-  name: scaffold-bancolombia-java
-  title: Clean Architecture Java Template
-  description: Template for the scaffolder that creates a clean architecture project java
+  name: create-terraform-aws-template
+  title: Create terraform aws template
+  description: Create a new CRA website project
   tags:
-    - recommended
-    - java
-spec:
-  owner: user:guest
-  type: service
+    - terraform
+    - aws
+    - github
 
-  # These parameters are used to generate the input form in the frontend, and are
-  # used to gather input data for the execution of the template.
+spec:
+  owner: web@example.com
+  type: website
   parameters:
-    - title: Fill in some steps
+    - title: Provide some simple information
       required:
-        - name
-        - package
-        - projectType
-        - coverage
+        - component_id
         - owner
       properties:
-        name:
-          title: Name Application
+        component_id:
+          title: Name
           type: string
           description: Unique name of the component
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-        package:
-          title: co.com.bancolombia
+          ui:field: EntityNamePicker
+        description:
+          title: Description
           type: string
-          description: You can specify the main or default package of your project
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-        projectType:
-          title: Type imperative - reactive
-          type: string
-          description: With this parameter the task will generate a POO project
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-        coverage:
-          title: Coverge jacoco - cobertura
-          type: string
-          description: This parameter is going to specify the coverage tool for the project
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-        lombok:
-          title: With lombok
-          type: boolean
-          description: Select to use lombok
-          default: false
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-        metrics:
-          title: With metrics
-          type: boolean
-          description: Select to enable metrics
-          default: false
-          ui:autofocus: true
-          ui:options:
-            rows: 5
+          description: Help others understand what this website is for.
         owner:
           title: Owner
           type: string
@@ -86,44 +46,38 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
-              - dev.azure.com
-
-  # These steps are executed in the scaffolder backend, using data that we gathered
-  # via the parameters above.
   steps:
-    # Each step executes an action, in this case one templates files into the working directory.
-    - id: fetch-base
-      name: Fetch Base
+    - id: template
+      name: Fetch Skeleton + Template
       action: fetch:template
       input:
         url: ./skeleton
+        copyWithoutRender:
+          - .github/workflows/*
         values:
-          name: ${{ parameters.name }}
-          package: ${{ parameters.package }}
-          projectType: ${{ parameters.projectType }}
-          coverage: ${{ parameters.coverage }}
-          lombok: ${{ parameters.lombok }}
-          metrics: ${{ parameters.metrics }}
+          component_id: ${{ parameters.component_id }}
+          description: ${{ parameters.description }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
+          service_provider: ${{ parameters.service_provider }}
+          infraas_code: ${{ parameters.infraas_code }}
 
-    # This step publishes the contents of the working directory to GitHub.
     - id: publish
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ['github.com','dev.azure.com']
-        description: This is ${{ parameters.name }}
+        allowedHosts:
+          - github.com
+        description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
 
-    # The final step is to register our new component in the catalog.
     - id: register
       name: Register
       action: catalog:register
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        catalogInfoPath: '/catalog-info.yaml'
+        catalogInfoPath: "/catalog-info.yaml"
 
-  # Outputs are displayed to the user after a successful execution of the template.
   output:
     links:
       - title: Repository
