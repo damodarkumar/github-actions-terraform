@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: create-terraform-aws-template
-  title: Create terraform aws template
+  name: terraform-aws-service
+  title: terraform-aws-service
   description: Create a new Infra on AWS
   tags:
     - terraform
