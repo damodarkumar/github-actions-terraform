@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: create-terraform-aws-template
   title: Create terraform aws template
-  description: Create a new CRA website project
+  description: Create a new Infra on AWS
   tags:
     - terraform
     - aws
