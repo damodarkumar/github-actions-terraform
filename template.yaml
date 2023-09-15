@@ -62,14 +62,7 @@ spec:
           service_provider: ${{ parameters.service_provider }}
           infraas_code: ${{ parameters.infraas_code }}
 
-    - id: publish
-      name: Publish
-      action: publish:github
-      input:
-        allowedHosts:
-          - github.com
-        description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}
+
 
     - id: register
       name: Register
