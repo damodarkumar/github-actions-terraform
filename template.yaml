@@ -56,11 +56,7 @@ spec:
           - .github/workflows/*
         values:
           service_provider: ${{ parameters.service_provider }}
-          infraas_code: ${{ parameters.infraas_code }}
-          component_id: ${{ parameters.component_id }}
-          description: ${{ parameters.description }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}
-          owner: ${{ parameters.owner }}
+
           
 
 
