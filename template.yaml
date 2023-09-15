@@ -52,8 +52,6 @@ spec:
       action: fetch:template
       input:
         url: ./skeleton
-        copyWithRender:
-          - .github/workflows/*
         values:
           service_provider: ${{ parameters.service_provider }}
 
