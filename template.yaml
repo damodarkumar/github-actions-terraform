@@ -1,37 +1,30 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: backstage-test-template
-  title: Node App with GitHub Actions
-  description: Create a Node service with GitHub Actions workflows
+  name: create-react-app-template
+  title: Create React App Template
+  description: Create a new CRA website project
   tags:
-    - recommended
+    - react
+    - cra
 spec:
-  owner: guotiexin@gmail.com
-  type: service
+  owner: web@example.com
+  type: website
   parameters:
     - title: Provide some simple information
       required:
-        - service_name
-		- cloud_provider
+        - component_id
         - owner
       properties:
-        service_name:
+        component_id:
           title: Name
           type: string
-          description: Unique name of the service.
+          description: Unique name of the component
           ui:field: EntityNamePicker
-		  
-		cloud_provider:
-          title: Name
-          type: string
-          description: Unique name of the service.
-          ui:field: EntityNamePicker  
-		  
         description:
           title: Description
           type: string
-          description: Help others understand what this service is for; optional.
+          description: Help others understand what this website is for.
         owner:
           title: Owner
           type: string
@@ -43,7 +36,6 @@ spec:
     - title: Choose a location
       required:
         - repoUrl
-        - gitguardianApiKey
       properties:
         repoUrl:
           title: Repository Location
@@ -52,22 +44,16 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
-        gitguardianApiKey:
-          title: GITGUARDIAN_API_KEY
-          type: string
-          description: API Key from GitGuardian, used for CI to scan secrets https://dashboard.gitguardian.com/api/personal-access-tokens.
-
   steps:
     - id: template
       name: Fetch Skeleton + Template
       action: fetch:template
       input:
         url: ./skeleton
-        copyWithoutTemplating:
+        copyWithoutRender:
           - .github/workflows/*
         values:
-          serviceName: ${{ parameters.service_name }}
-		  cloudprividername: ${{ parameters.cloud_provider }}
+          component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
@@ -76,13 +62,10 @@ spec:
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ["github.com"]
-        description: This is ${{ parameters.service_name }}
+        allowedHosts:
+          - github.com
+        description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
-        defaultBranch: main
-        repoVisibility: public
-        secrets:
-          "GITGUARDIAN_API_KEY": ${{ parameters.gitguardianApiKey }}
 
     - id: register
       name: Register
