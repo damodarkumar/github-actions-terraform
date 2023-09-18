@@ -21,14 +21,12 @@ spec:
           type: string
           description: Unique name of the service.
           ui:field: EntityNamePicker
-		  
-	cloud_provider:
+        cloud_provider:
           title: Name
           type: string
           description: Unique name of the service.
           ui:field: EntityNamePicker  
-		  
-        description:
+	description:
           title: Description
           type: string
           description: Help others understand what this service is for; optional.
