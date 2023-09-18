@@ -14,7 +14,7 @@ spec:
       required:
         - service_name
 	- owner
-        - cloud_provider
+        
       properties:
         service_name:
           title: Name
