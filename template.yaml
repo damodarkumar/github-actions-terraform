@@ -14,7 +14,6 @@ spec:
       required:
         - service_name
 	- owner
-        
       properties:
         service_name:
           title: Name
