@@ -1,13 +1,13 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: backstage-test-template
+  name: aws-infra-template
   title: Node App with GitHub Actions
   description: Create a Node service with GitHub Actions workflows
   tags:
     - recommended
 spec:
-  owner: guotiexin@gmail.com
+  owner: dhamu1010@gmail.com
   type: service
   parameters:
     - title: Provide some simple information
