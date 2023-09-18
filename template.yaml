@@ -57,7 +57,7 @@ spec:
       action: fetch:template
       input:
         url: ./skeleton
-        copyWithoutRender:
+        copyWithRender:
           - .github/workflows/*
         values:
           component_id: ${{ parameters.component_id }}
