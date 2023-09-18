@@ -24,9 +24,9 @@ spec:
           description: Unique name of the component
           ui:field: EntityNamePicker
         cloud_provider:
-          title: Name
+          title: cloudprovider
           type: string
-          description: Unique name of the component
+          description: provide cloud provider name
           ui:field: EntityNamePicker   
         description:
           title: Description
