@@ -1,26 +1,33 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: create-react-app-template
-  title: Create React App Template
-  description: Create a new CRA website project
+  name: aws-infra-template
+  title: Create aws infra Template
+  description: Create a new t3 micro ec2 
   tags:
-    - react
-    - cra
+    - terraform
+    - aws
+    - github
 spec:
-  owner: web@example.com
-  type: website
+  owner: dhamu1010@gmail.com
+  type: service
   parameters:
     - title: Provide some simple information
       required:
         - component_id
         - owner
+        - cloud_provider
       properties:
         component_id:
           title: Name
           type: string
           description: Unique name of the component
           ui:field: EntityNamePicker
+        cloud_provider:
+          title: Name
+          type: string
+          description: Unique name of the component
+          ui:field: EntityNamePicker   
         description:
           title: Description
           type: string
@@ -54,6 +61,7 @@ spec:
           - .github/workflows/*
         values:
           component_id: ${{ parameters.component_id }}
+          cloud_provider: ${{ parameters.cloud_provider }}
           description: ${{ parameters.description }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
