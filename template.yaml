@@ -13,8 +13,8 @@ spec:
     - title: Provide some simple information
       required:
         - service_name
-	- cloud_provider
-        - owner
+	- owner
+        - cloud_provider
       properties:
         service_name:
           title: Name
