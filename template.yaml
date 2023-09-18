@@ -80,6 +80,12 @@ spec:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: "/catalog-info.yaml"
 
+    - id: execute github workflow
+      name: execute
+      action: catalog:execute
+      input:
+        workflowDirPath: ".github/workflows/*"
+
   output:
     links:
       - title: Repository
