@@ -1,37 +1,37 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: aws-infra-template
-  title: Create aws infra Template
-  description: Create a new t3 micro ec2 
+  name: backstage-test-template
+  title: Node App with GitHub Actions
+  description: Create a Node service with GitHub Actions workflows
   tags:
-    - terraform
-    - aws
-    - github
+    - recommended
 spec:
-  owner: dhamu1010@gmail.com
+  owner: guotiexin@gmail.com
   type: service
   parameters:
     - title: Provide some simple information
       required:
-        - component_id
+        - service_name
+		- cloud_provider
         - owner
-        - cloud_provider
       properties:
-        component_id:
+        service_name:
           title: Name
           type: string
-          description: Unique name of the component
+          description: Unique name of the service.
           ui:field: EntityNamePicker
-        cloud_provider:
-          title: cloudprovider
+		  
+		cloud_provider:
+          title: Name
           type: string
-          description: provide cloud provider name
-          ui:field: EntityNamePicker   
+          description: Unique name of the service.
+          ui:field: EntityNamePicker  
+		  
         description:
           title: Description
           type: string
-          description: Help others understand what this website is for.
+          description: Help others understand what this service is for; optional.
         owner:
           title: Owner
           type: string
@@ -43,6 +43,7 @@ spec:
     - title: Choose a location
       required:
         - repoUrl
+        - gitguardianApiKey
       properties:
         repoUrl:
           title: Repository Location
@@ -51,15 +52,22 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+        gitguardianApiKey:
+          title: GITGUARDIAN_API_KEY
+          type: string
+          description: API Key from GitGuardian, used for CI to scan secrets https://dashboard.gitguardian.com/api/personal-access-tokens.
+
   steps:
     - id: template
       name: Fetch Skeleton + Template
       action: fetch:template
       input:
         url: ./skeleton
+        copyWithoutTemplating:
+          - .github/workflows/*
         values:
-          component_id: ${{ parameters.component_id }}
-          cloud_provider: ${{ parameters.cloud_provider }}
+          serviceName: ${{ parameters.service_name }}
+		  cloudprividername: ${{ parameters.cloud_provider }}
           description: ${{ parameters.description }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
@@ -68,10 +76,13 @@ spec:
       name: Publish
       action: publish:github
       input:
-        allowedHosts:
-          - github.com
-        description: This is ${{ parameters.component_id }}
+        allowedHosts: ["github.com"]
+        description: This is ${{ parameters.service_name }}
         repoUrl: ${{ parameters.repoUrl }}
+        defaultBranch: main
+        repoVisibility: public
+        secrets:
+          "GITGUARDIAN_API_KEY": ${{ parameters.gitguardianApiKey }}
 
     - id: register
       name: Register
@@ -79,12 +90,6 @@ spec:
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: "/catalog-info.yaml"
-
-    - id: execute github workflow
-      name: execute
-      action: catalog:execute
-      input:
-        workflowDirPath: ".github/workflows/*"
 
   output:
     links:
