@@ -1,4 +1,4 @@
-name: Provision t3.micro EC2
+name: Invoke Terraform Worfklow
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
         default: 'App Server New'
         type: string
 jobs:
-  provision-ec2:
+  invoke-terraform:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
