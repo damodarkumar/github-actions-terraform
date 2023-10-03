@@ -3,7 +3,7 @@ kind: Component
 metadata:
   annotations:
     github.com/project-slug: damodarkumar/github-actions-terraform 
-  name: terraform-project
+  name: aws-ec2-t3-micro
 spec:
   type: service
   lifecycle: production
