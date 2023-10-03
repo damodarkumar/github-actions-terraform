@@ -1,14 +1,19 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{values.component_id | dump}}
-  {%- if values.description %}
-  description: ${{values.description | dump}}
-  {%- endif %}
-  annotations:
-    github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
-    backstage.io/techdocs-ref: dir:.
+  name: terraform-project
 spec:
   type: service
-  lifecycle: experimental
-  owner: ${{values.owner | dump}}
+  lifecycle: production
+  owner: platform-engineering-team
+  provides:
+    - type: GitHubAction
+      targets:
+        - damodarkumar/github-actions-terraform  # Replace with your GitHub repository in the format "owner/repo"
+      implementsApis:
+        - apiVersion: backstage.io/v1alpha1
+          kind: GitHubAction
+          name: invoke-terraform
+          schema:
+            url: https://github.com/damodarkumar/github-actions-terraform/blob/main/skeleton/.github/workflows/provision_ec2.yaml  # Replace with the actual URL of your workflow file
+            method: post
