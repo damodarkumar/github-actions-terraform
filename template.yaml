@@ -1,14 +1,12 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: invoke-terraform-githubworkflow
-  title: invoke terraform github workflow
-  description: github workflow to create ec2 instance t3 micro
+  name: invoke
+  title: invoke
+  description: invoke terraform
   tags:
-    - terraform
-    - aws
-    - github
-
+    - aws-private
+    - github-private
 spec:
   owner: dhamu1010@gmail.com
   type: website
@@ -59,8 +57,6 @@ spec:
           description: ${{ parameters.description }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
-          service_provider: ${{ parameters.service_provider }}
-          infraas_code: ${{ parameters.infraas_code }}
 
     - id: publish
       name: Publish
