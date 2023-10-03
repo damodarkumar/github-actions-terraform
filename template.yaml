@@ -1,17 +1,17 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: create-terraform-aws-template
-  title: Create terraform aws template
-  description: Create a new CRA website project
+  name: invoke-github-workfllow
+  title: invoke github workflow template
+  description: Create a new vm t3-micro on aws
   tags:
     - terraform
     - aws
     - github
 
 spec:
-  owner: web@example.com
-  type: website
+  owner: dhamu1010@gmail.com
+  type: infra
   parameters:
     - title: Provide some simple information
       required:
@@ -50,10 +50,7 @@ spec:
     - id: template
       name: Fetch Skeleton + Template
       action: fetch:template
-      input:
-        url: ./skeleton
-        copyWithoutRender:
-          - .github/workflows/*
+      
         values:
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
