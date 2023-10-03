@@ -1,16 +1,16 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: create-terraform-aws-template
-  title: Create terraform aws template
-  description: Create a new CRA website project
+  name: invoke-terraform-githubworkflow
+  title: invoke terraform github workflow
+  description: github workflow to create ec2 instance t3 micro
   tags:
     - terraform
     - aws
     - github
 
 spec:
-  owner: web@example.com
+  owner: dhamu1010@gmail.com
   type: website
   parameters:
     - title: Provide some simple information
