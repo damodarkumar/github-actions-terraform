@@ -3,7 +3,7 @@ kind: Component
 metadata:
   annotations:
     github.com/project-slug: damodarkumar/github-actions-terraform 
-  name: create ec2-t3-micro
+  name: create awsec2t3micro
 spec:
   type: service
   lifecycle: production
