@@ -1,14 +1,14 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: invoke
-  title: invoke
-  description: invoke terraform
+  name: create-infra
+  title: Create infra
+  description: Create a new infra
   tags:
-    - aws-private
-    - github-private
+    - aws
+    - terraform
 spec:
-  owner: dhamu1010@gmail.com
+  owner: web@example.com
   type: website
   parameters:
     - title: Provide some simple information
