@@ -3,7 +3,7 @@ kind: Component
 metadata:
   annotations:
     github.com/project-slug: damodarkumar/github-actions-terraform 
-  name: aws-ec2-t3-micro
+  name: terraform-project
 spec:
   type: service
   lifecycle: production
@@ -17,6 +17,6 @@ spec:
           kind: GitHubAction
           name: invoke-terraform
           schema:
-            url: https://github.com/damodarkumar/github-actions-terraform/blob/main/skeleton/.github/workflows/provision_ec2.yaml  # Replace with the actual URL of your workflow file
+            url: https://github.com/damodarkumar/github-actions-terraform/blob/main/skeleton/.github/workflows/invoke.yaml  # Replace with the actual URL of your workflow file
             method: post
 
