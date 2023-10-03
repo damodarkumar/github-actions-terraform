@@ -1,6 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/damodarkumar/github-actions-terraform/blob/main/terraform/catalog-info.yaml 
   name: terraform-project
 spec:
   type: service
@@ -18,7 +20,3 @@ spec:
             url: https://github.com/damodarkumar/github-actions-terraform/blob/main/skeleton/.github/workflows/provision_ec2.yaml  # Replace with the actual URL of your workflow file
             method: post
 
-# Example:
-metadata:
-  annotations:
-    backstage.io/managed-by-location: url:https://github.com/damodarkumar/github-actions-terraform/blob/main/terraform/catalog-info.yaml
