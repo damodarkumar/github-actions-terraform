@@ -11,7 +11,7 @@ spec:
   provides:
     - type: GitHubAction
       targets:
-        - damodarkumar/https://github.com/damodarkumar/github-actions-terraform  # Replace with your GitHub repository in the format "owner/repo"
+        - damodarkumar/github-actions-terraform  # Replace with your GitHub repository in the format "owner/repo"
       implementsApis:
         - apiVersion: backstage.io/v1alpha1
           kind: GitHubAction
