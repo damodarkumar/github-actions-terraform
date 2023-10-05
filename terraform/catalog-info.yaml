@@ -2,16 +2,16 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   annotations:
-    github.com/project-slug: damodarkumar/github-actions-terraform 
-  name: aws-ec2-t3-micro
+    github.com/project-slug: damodarkumar/github-actions-terraform
+  name: terraform-project
 spec:
   type: service
   lifecycle: production
-  owner: platform-engineering-team
+  owner: Platform Engineering Team
   provides:
     - type: GitHubAction
       targets:
-        - damodarkumar/github-actions-terraform  # Replace with your GitHub repository in the format "owner/repo"
+        - damodarkumar/https://github.com/damodarkumar/github-actions-terraform  # Replace with your GitHub repository in the format "owner/repo"
       implementsApis:
         - apiVersion: backstage.io/v1alpha1
           kind: GitHubAction
@@ -19,4 +19,3 @@ spec:
           schema:
             url: https://github.com/damodarkumar/github-actions-terraform/blob/main/.github/workflows/invoke.yml  # Replace with the actual URL of your workflow file
             method: post
-
