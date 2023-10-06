@@ -1,21 +1,11 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  annotations:
-    github.com/project-slug: damodarkumar/github-actions-terraform
-  name: aws-t3-micro
+  name: my-app
+  description: My awesome app
 spec:
-  type: service
+  type: github-actions
   lifecycle: production
-  owner: Platform Engineering Team
-  provides:
-    - type: GitHubAction
-      targets:
-        - damodarkumar/github-actions-terraform  # Replace with your GitHub repository in the format "owner/repo"
-      implementsApis:
-        - apiVersion: backstage.io/v1alpha1
-          kind: GitHubAction
-          name: invoke-terraform
-          schema:
-            url: https://github.com/damodarkumar/github-actions-terraform/blob/main/.github/workflows/invoke.yml  # Replace with the actual URL of your workflow file
-            method: post
+  template: github-actions
+  owner: damodarkumar
+  repository: github-actions-terraform
