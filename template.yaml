@@ -1,48 +1,15 @@
-apiVersion: scaffolder.backstage.io/v1beta3
+apiVersion: backstage.io/v1alpha1
 kind: Template
 metadata:
-  name: create-infra
-  title: Create infra
-  description: Create a new infra
-  tags:
-    - aws
-    - terraform
-spec:
-  owner: dhamu1010@gmail.com.com
-  type: website
-  parameters:
-    - title: Provide some simple information
-      required:
-        - component_id
-        - owner
-      properties:
-        component_id:
-          title: Name
-          type: string
-          description: Unique name of the component
-          ui:field: EntityNamePicker
-        description:
-          title: Description
-          type: string
-          description: Help others understand what this website is for.
-        owner:
-          title: Owner
-          type: string
-          description: Owner of the component
-          ui:field: OwnerPicker
-          ui:options:
-            allowedKinds:
-              - Group
- 
-  steps:
-    - id: invoke
-      name: Register
-      action: terraform-invoke
-      input:
-        catalogInfoPath: "/catalog-info.yaml"
-
-  output:
-    links:
-      - title: Open in catalog
-        icon: catalog
-        entityRef: ${{ steps.invoke.output.entityRef }}
+  name: github-actions
+  title: GitHub Actions Workflow
+description: A Backstage template for invoking GitHub Actions.
+type: component
+template:
+  owner: 'damodarkumar'
+  repository: 'github-actions-terraform'
+  workflow_file: .github/workflows/invoke.yml
+  actions:
+    - name: Run CI/CD Pipeline
+      description: Trigger the CI/CD pipeline using GitHub Actions
+      actionType: github-actions
