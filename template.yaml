@@ -8,7 +8,7 @@ type: component
 template:
   owner: 'damodarkumar'
   repository: 'github-actions-terraform'
-  workflow_file: .github/workflows/invoke.yml
+  workflow_file: github-actions-terraform/.github/workflows/invoke.yml
   actions:
     - name: Run CI/CD Pipeline
       description: Trigger the CI/CD pipeline using GitHub Actions
