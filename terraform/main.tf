@@ -28,7 +28,7 @@ resource "aws_instance" "app_server" {
 
   tags = {
     Name = var.ec2_name
-    type = var.ec2_type
+    instance_type = var.ec2_type
     region = var.provider_region
   }
 }
