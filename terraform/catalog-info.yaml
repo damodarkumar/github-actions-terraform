@@ -4,7 +4,7 @@ metadata:
   annotations:
     github.com/project-slug: damodarkumar/github-actions-terraform
     github.com/workflows: invoke.yml
-  name: aws-t3-micro
+  name: aws-infra-ec2-provision
 spec:
   type: service
   lifecycle: production
