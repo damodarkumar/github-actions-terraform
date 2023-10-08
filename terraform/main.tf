@@ -19,7 +19,7 @@ provider "aws" {
   region  = var.provider_region
 }
 
-resource "aws_instance" "var.ec2_name" {
+resource "aws_instance" "app_server" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.ec2_type
   key_name               = "githubworkflow-ec2-key"
