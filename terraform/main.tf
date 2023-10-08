@@ -16,12 +16,12 @@ data "aws_ami" "ubuntu" {
 }
 
 provider "aws" {
-  region  = "eu-north-1"
+  region  = "${{ github.event.inputs.provider-region }}"
 }
 
-resource "aws_instance" "app_server" {
+resource "aws_instance" "${{ github.event.inputs.ec2-name }}" {
   ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t3.micro"
+  instance_type          = "${{ github.event.inputs.ec2-type }}"
   key_name               = "githubworkflow-ec2-key"
   vpc_security_group_ids = ["sg-01cab0749958c8eb9", "sg-05bfbde6bf99c7437"]
   subnet_id              = "subnet-0d057951ed8b3350a"
