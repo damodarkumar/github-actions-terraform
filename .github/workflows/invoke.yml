@@ -6,19 +6,19 @@ on:
       ec2-name:
         description: EC2 name
         required: true
-        default: 'App Server New'
+        default: ''
         type: string
 
-      instance-type:
+      ec2-type:
         description: EC2 type
         required: true
-        default: 't3.micro'
+        default: ''
         type: string
 
       provider-region:
         description: providee region
         required: true
-        default: 'eu-north-1'
+        default: ''
         type: string
 jobs:
   invoke-terraform:
