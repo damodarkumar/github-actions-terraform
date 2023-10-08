@@ -9,13 +9,13 @@ on:
         default: 'App Server New'
         type: string
 
-        instance-type:
+      instance-type:
         description: EC2 type
         required: true
         default: 't3.micro'
         type: string
 
-        provider-region:
+      provider-region:
         description: providee region
         required: true
         default: 'eu-north-1'
