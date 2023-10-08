@@ -8,6 +8,18 @@ on:
         required: true
         default: 'App Server New'
         type: string
+
+        instance-type:
+        description: EC2 type
+        required: true
+        default: 't3.micro'
+        type: string
+
+        provider-region:
+        description: providee region
+        required: true
+        default: 'eu-north-1'
+        type: string
 jobs:
   invoke-terraform:
     runs-on: ubuntu-latest
@@ -30,6 +42,8 @@ jobs:
         id:   apply
         env:
           TF_VAR_ec2_name:  "${{ github.event.inputs.ec2-name }}"
+          TF_VAR_ec2_type:  "${{ github.event.inputs.ec2-type }}"
+          TF_VAR_provider_region:  "${{ github.event.inputs.provider-region }}"
         run: |
           cd terraform/
           terraform init
