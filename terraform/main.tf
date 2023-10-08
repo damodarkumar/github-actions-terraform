@@ -19,7 +19,7 @@ provider "aws" {
   region  = "eu-north-1"
 }
 
-resource "aws_instance" "App Server New" {
+resource "aws_instance" "app_server" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t3.micro"
   key_name               = "githubworkflow-ec2-key"
