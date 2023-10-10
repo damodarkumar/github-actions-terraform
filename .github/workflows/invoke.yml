@@ -11,7 +11,11 @@ on:
       ec2-type:
         description: EC2 type
         required: true
-        type: string
+        type: choice
+        options: 
+        - t3.micro
+        - t3.small
+        - t3.medium
 
       provider-region:
         description: provider region
