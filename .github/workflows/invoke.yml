@@ -12,17 +12,17 @@ on:
         description: EC2 type
         required: true
         type: choice
-        options: 
-        - t3.micro
-        - t2.micro
+        #options: 
+        #- t3.micro
+        #- t2.micro
 
       provider-region:
         description: provider region
         required: true
         type: choice
         options: 
-        - us-east-1
-        - eu-north-1
+        #- us-east-1
+        #- eu-north-1
 jobs:
   invoke-terraform:
     runs-on: ubuntu-latest
