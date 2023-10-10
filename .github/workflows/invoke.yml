@@ -13,13 +13,13 @@ on:
         description: EC2 type
         required: true
         default: ''
-        type: string
+        type: choice
 
       provider-region:
         description: providee region
         required: true
         default: ''
-        type: string
+        type: choice
 jobs:
   invoke-terraform:
     runs-on: ubuntu-latest
