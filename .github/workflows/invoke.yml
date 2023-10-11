@@ -2,24 +2,7 @@ name: Invoke Terraform Worfklow
 
 on:
   workflow_dispatch:
-    inputs:
-      ec2-name:
-        description: EC2 name
-        required: true
-        type: string
-
-      ec2-type:
-        description: EC2 type
-        required: true
-        type: string
-
-      provider-region:
-        description: provider region
-        required: true
-        type: choice
-        options: 
-        - us-east-1
-        - eu-north-1
+    
 jobs:
   invoke-terraform:
     runs-on: ubuntu-latest
