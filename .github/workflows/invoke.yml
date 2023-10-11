@@ -2,6 +2,11 @@ name: Invoke Terraform Worfklow
 
 on:
   workflow_dispatch:
+    inputs:
+      ec2-name:
+        description: EC2 name
+        required: true
+        type: string
     
     
 jobs:
