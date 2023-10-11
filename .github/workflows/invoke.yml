@@ -2,6 +2,24 @@ name: Invoke Terraform Worfklow
 
 on:
   workflow_dispatch:
+    inputs:
+      ec2-name:
+        description: EC2 name
+        required: true
+        type: string
+
+      ec2-type:
+        description: EC2 type
+        required: true
+        type: string
+
+      provider-region:
+        description: provider region
+        required: true
+        type: choice
+        options: 
+        - us-east-1
+        - eu-north-1
     
 jobs:
   invoke-terraform:
@@ -23,7 +41,10 @@ jobs:
           terraform_wrapper: false
       - name: Terraform Apply
         id:   apply
-        
+        env:
+          TF_VAR_ec2_name:  "${{ github.event.inputs.ec2-name }}"
+          TF_VAR_ec2_type:  "${{ github.event.inputs.ec2-type }}"
+          TF_VAR_provider_region:  "${{ github.event.inputs.provider-region }}"
         run: |
           cd terraform/
           terraform init
