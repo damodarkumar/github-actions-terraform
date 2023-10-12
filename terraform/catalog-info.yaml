@@ -3,7 +3,7 @@ kind: Component
 metadata:
   annotations:
     github.com/project-slug: damodarkumar/github-actions-terraform
-    github.com/workflows: invoke.yml
+    github.com/workflows: https://api.github.com/repos/damodarkumar/github-actions-terraform/actions/workflows/invoke.yml/dispatches
   name: aws-infra-ec2-provision
 spec:
   type: service
