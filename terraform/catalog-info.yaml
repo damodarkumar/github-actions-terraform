@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   annotations:
-    github.com/project-slug: damodarkumar/github-actions-terraform
+    github.com/project-slug: github-actions-terraform
     github.com/workflows: https://api.github.com/repos/damodarkumar/github-actions-terraform/actions/workflows/invoke.yml/dispatches
   name: aws-infra-ec2-provision
 spec:
