@@ -14,12 +14,20 @@ on:
         required: true
         default: ''
         type: choice
+        options: 
+        - t3.micro
+        - t3.small
+        - t3.medium
 
       provider-region:
         description: providee region
         required: true
         default: ''
         type: choice
+        options: 
+        - eu-east-1
+        - eu-north-1
+        
 jobs:
   invoke-terraform:
     runs-on: ubuntu-latest
