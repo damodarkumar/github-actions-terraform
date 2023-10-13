@@ -20,7 +20,7 @@ resource "aws_vpc" "pe_custom_vpc" {
 resource "aws_subnet" "pe_public_subnet" {
   vpc_id            = aws_vpc.pe_custom_vpc.id
   cidr_block        = "10.0.1.0/24"
- # availability_zone = "1a"
+# availability_zone = "1a"
 
   tags = {
     Name = "pe Public Subnet"
@@ -30,7 +30,7 @@ resource "aws_subnet" "pe_public_subnet" {
 resource "aws_subnet" "pe_private_subnet" {
   vpc_id            = aws_vpc.pe_custom_vpc.id
   cidr_block        = "10.0.2.0/24"
- # availability_zone = "1a"
+# availability_zone = "1a"
 
   tags = {
     Name = "pe Private Subnet"
@@ -59,7 +59,7 @@ resource "aws_route_table" "public_rt" {
   route {
     ipv6_cidr_block = "::/0"
     gateway_id      = aws_internet_gateway.pe_ig.id
-  }
+ }
 
   tags = {
     Name = "Public Route Table"
@@ -136,13 +136,8 @@ resource "aws_instance" "web_instance" {
   EOF
 
   tags = {
-    ec2_name = var.ec2_name
+    Name = var.ec2_name
     instance_type = var.ec2_type
-    prrovider_region = var.provider_region
+    region = var.provider_region
   }
 }
-
-
-
-
-
