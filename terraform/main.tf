@@ -119,7 +119,7 @@ data "aws_ami" "ubuntu" {
 #Resource: aws_instance
 resource "aws_instance" "web_instance" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = var.ec2_type
+  instance_type = t3.micro
   key_name      = "githubworkflow-ec2-key"
 
   subnet_id                   = aws_subnet.pe_public_subnet.id
