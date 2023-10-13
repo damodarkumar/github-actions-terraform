@@ -1,7 +1,7 @@
 #Providers
 
 provider "aws" {
-  region  = github.event.inputs.provider-region
+  region  = var.provider_region
 }
 
 #Create VPC
@@ -136,8 +136,8 @@ resource "aws_instance" "web_instance" {
   EOF
 
   tags = {
-    Name = var.ec2_name
-    instance_type = var.ec2_type
+    Name = "${{ github.event.inputs.ec2-name }}"
+    instance_type = "${{ github.event.inputs.ec2-type }}"
     region = ${{ github.event.inputs.provider-region }}
   }
 }
