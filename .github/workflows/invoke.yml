@@ -41,9 +41,9 @@ jobs:
       - name: Terraform Apply
         id:   apply
         env:
-          TF_VAR_ec2_name:  "${{ github.event.inputs.ec2-name }}"
-          TF_VAR_ec2_type:  "${{ github.event.inputs.ec2-type }}"
-          TF_VAR_provider_region:  "${{ github.event.inputs.provider-region }}"
+          TF_VAR_ec2_name:  "${{ var.ec2-name }}"
+          TF_VAR_ec2_type:  "${{ var.ec2-type }}"
+          TF_VAR_provider_region:  "${{ var.provider-region }}"
         run: |
           echo 'About to echo the input parameter value'
           echo "$ec2-name"
