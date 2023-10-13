@@ -13,14 +13,21 @@ on:
         description: "EC2 type"
         required: false
         default: ""
-        type: "string"
+        type: "choice"
+        options: 
+        - t3.micro
+        - t2.micro
+        
         
 
       provider-region:
         description: "provider region"
         required: false
         default: ""
-        type: "string"
+        type: "choice"
+        options: 
+        - eu-north-1
+        - eu-east-1
         
         
 jobs:
