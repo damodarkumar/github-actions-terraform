@@ -135,11 +135,11 @@ resource "aws_instance" "web_instance" {
   systemctl start nginx
   EOF
 
-  tags = {
-    ec2_name = "${{ github.event.inputs.ec2_name }}"
-    instance_type = "${{ github.event.inputs.ec2_type }}"
-    prrovider_region = ${{ github.event.inputs.provider_region }}
-  }
+  #tags = {
+  #  ec2_name = "${{ github.event.inputs.ec2_name }}"
+  #  instance_type = "${{ github.event.inputs.ec2_type }}"
+  #  prrovider_region = ${{ github.event.inputs.provider_region }}
+  #}
 }
 
 
