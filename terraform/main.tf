@@ -1,7 +1,7 @@
 #Providers
 
 provider "aws" {
-  region  = var.provider_region
+  region  = eu-north-1
 }
 
 #Create VPC
