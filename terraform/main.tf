@@ -136,9 +136,9 @@ resource "aws_instance" "web_instance" {
   EOF
 
   tags = {
-    Name = "${{ github.event.inputs.ec2-name }}"
-    instance_type = "${{ github.event.inputs.ec2-type }}"
-    region = ${{ github.event.inputs.provider-region }}
+    Name = "${{ github.event.inputs.ec2_name }}"
+    instance_type = "${{ github.event.inputs.ec2_type }}"
+    region = ${{ github.event.inputs.provider_region }}
   }
 }
 
