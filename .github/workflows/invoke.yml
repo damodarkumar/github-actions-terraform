@@ -12,21 +12,14 @@ on:
       ec2-type:
         description: "EC2 type"
         default: "t3.micro"
-        type: "choice"
-        options: 
-        - t3.micro
-        - t2.micro
-        
+        type: "string"             
         
 
       provider-region:
         description: "provider region"
         default: "eu-north-1"
-        type: "choice"
-        options: 
-        - eu-north-1
-        - eu-east-1
-        
+        type: "string"
+                
         
 jobs:
   invoke-terraform:
