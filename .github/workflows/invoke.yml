@@ -5,13 +5,13 @@ on:
     inputs:
       ec2-name:
         description: EC2 name
-        required: true
+        required: false
         default: ''
         type: string
 
       ec2-type:
         description: EC2 type
-        required: true
+        required: false
         default: ''
         type: choice
         options: 
@@ -21,7 +21,7 @@ on:
 
       provider-region:
         description: providee region
-        required: true
+        required: false
         default: ''
         type: choice
         options: 
