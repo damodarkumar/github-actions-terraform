@@ -6,21 +6,18 @@ on:
       ec2-name:
         description: "EC2 name"
         required: false
-        default: ""
-        type: "string"
+        
 
       ec2-type:
         description: "EC2 type"
         required: false
-        default: ""
-        type: "string"             
+                     
         
 
       provider-region:
         description: "provider region"
         required: false
-        default: ""
-        type: "string"
+        
                 
         
 jobs:
@@ -48,6 +45,11 @@ jobs:
           TF_VAR_ec2_type:  "${{ github.event.inputs.ec2-type }}"
           TF_VAR_provider_region:  "${{ github.event.inputs.provider-region }}"
         run: |
+          echo 'About to echo the input parameter value'
+          echo "$ec2-name"
+          echo "$ec2-type"
+          echo "$provider-region"
+          
           cd terraform/
           terraform init
           terraform validate
