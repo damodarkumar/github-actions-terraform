@@ -46,9 +46,9 @@ jobs:
           TF_VAR_provider_region:  "${{ github.event.inputs.provider-region }}"
         run: |
           echo 'About to echo the input parameter value'
-          echo "$ec2_name"
-          echo "$ec2_type"
-          echo "$provider_region"
+          echo "$ec2-name"
+          echo "$ec2-type"
+          echo "$provider-region"
           
           cd terraform/
           terraform init
