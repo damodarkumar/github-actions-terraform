@@ -5,14 +5,14 @@ on:
     inputs:
       ec2-name:
         description: EC2 name
-        required: true
-        default: ''
+        required: false
+        default: ""
         type: string
 
       ec2-type:
         description: EC2 type
-        required: true
-        default: ''
+        required: false
+        default: ""
         type: choice
         options: 
         - t3.micro
@@ -20,8 +20,8 @@ on:
 
       provider-region:
         description: providee region
-        required: true
-        default: ''
+        required: false
+        default: ""
         type: choice
         options: 
         - us-east-1
