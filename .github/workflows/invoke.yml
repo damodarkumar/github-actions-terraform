@@ -11,7 +11,6 @@ on:
 
       ec2-type:
         description: "EC2 type"
-        required: true
         default: ""
         type: "choice"
         options: 
@@ -22,7 +21,6 @@ on:
 
       provider-region:
         description: "provider region"
-        required: true
         default: ""
         type: "choice"
         options: 
