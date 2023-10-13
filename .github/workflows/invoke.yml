@@ -3,24 +3,24 @@ name: Invoke Terraform Worfklow
 on:
   workflow_dispatch:
     inputs:
-      ec2-name:
-        description: EC2 name
+      "ec2-name":
+        description: "EC2 name"
         required: false
         default: ""
-        type: string
+        type: "string"
 
-      ec2-type:
-        description: EC2 type
+      "ec2-type":
+        description: "EC2 type"
         required: false
         default: ""
-        type: string
+        type: "string"
         
 
-      provider-region:
-        description: provider region
+      "provider-region":
+        description: "provider region"
         required: false
         default: ""
-        type: string
+        type: "string"
         
         
 jobs:
