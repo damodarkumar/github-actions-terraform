@@ -37,7 +37,7 @@ jobs:
           #TF_VAR_provider_region:  "${{ github.event.inputs.provider_region }}"
           
         run: |
-          echo "App name is ${{ github.event.inputs.ec2_name }}"
+          echo "App name is ${{ github.event.inputs.ec2-name }}"
           #echo "${{ github.event.inputs.ec2_name }}"
           #echo "${{ github.event.inputs.ec2_name }}"
           #echo "${{ github.event.inputs.ec2_name }}"
