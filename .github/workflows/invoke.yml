@@ -8,6 +8,16 @@ on:
         required: false
         type: string
 
+      ec2-type:
+        description: EC2 type
+        required: false
+        type: string 
+
+      provider-region:
+        description: Provider region
+        required: false
+        type: string  
+
         
         
 jobs:
@@ -32,11 +42,13 @@ jobs:
         id:   apply
         env:
           TF_VAR_ec2_name:  "${{ github.event.inputs.ec2-name }}"
-          #TF_VAR_ec2_type:  "${{ github.event.inputs.ec2_type }}"
-          #TF_VAR_provider_region:  "${{ github.event.inputs.provider_region }}"
+          TF_VAR_ec2_type:  "${{ github.event.inputs.ec2-type }}"
+          TF_VAR_provider_region:  "${{ github.event.inputs.provider-region }}"
           
         run: |
           echo "App name is ${{ github.event.inputs.ec2-name }}"
+          echo "App name is ${{ github.event.inputs.ec2-type }}"
+          echo "App name is ${{ github.event.inputs.provider-region }}"
           #echo "${{ github.event.inputs.ec2_name }}"
           #echo "${{ github.event.inputs.ec2_name }}"
           #echo "${{ github.event.inputs.ec2_name }}"
