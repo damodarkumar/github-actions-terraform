@@ -136,7 +136,7 @@ resource "aws_instance" "web_instance" {
   EOF
 
   tags = {
-    #Name = var.ec2_name
+    Name = var.ec2_name
     #instance_type = var.ec2_type
     #region = var.provider_region
   }
