@@ -6,7 +6,7 @@ on:
       ec2-name:
         description: EC2 name
         required: false
-        default: ""
+        default: "Application Server"
         type: string
 
         
@@ -31,14 +31,14 @@ jobs:
           terraform_wrapper: false
       - name: Terraform Apply
         id:   apply
-        env:
-          TF_VAR_ec2_name:  "${{ github.event.inputs.ec2-name }}"
+        #env:
+          #TF_VAR_ec2_name:  "${{ github.event.inputs.ec2-name }}"
           #TF_VAR_ec2_type:  "${{ github.event.inputs.ec2_type }}"
           #TF_VAR_provider_region:  "${{ github.event.inputs.provider_region }}"
           
         run: |
-          echo "input parameters display below"
-          echo "${{ github.event.inputs.ec2_name }}"
+          echo "App name ${{ github.event.inputs.ec2_name }}"
+          #echo "${{ github.event.inputs.ec2_name }}"
           #echo "${{ github.event.inputs.ec2_name }}"
           #echo "${{ github.event.inputs.ec2_name }}"
           
