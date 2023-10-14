@@ -1,7 +1,7 @@
 name: Invoke Terraform Worfklow
 
 on:
-  workflow_dispatch:
+  repository_dispatch:
     inputs:
       ec2-name:
         description: EC2 name
