@@ -1,7 +1,7 @@
 #Providers
 
 provider "aws" {
-  region  = var.provider_region
+  region  = "eu-east-1"
 }
 
 #Create VPC
@@ -119,7 +119,7 @@ data "aws_ami" "ubuntu" {
 #Resource: aws_instance
 resource "aws_instance" "web_instance" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = var.ec2_type
+  instance_type = "t3.micro"
   key_name      = "githubworkflow-ec2-key"
 
   subnet_id                   = aws_subnet.pe_public_subnet.id
@@ -137,7 +137,7 @@ resource "aws_instance" "web_instance" {
 
   tags = {
     Name = var.ec2_name
-    instance_type = var.ec2_type
-    region = var.provider_region
+    #instance_type = var.ec2_type
+    #region = var.provider_region
   }
 }
