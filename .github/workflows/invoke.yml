@@ -30,8 +30,8 @@ jobs:
           terraform_wrapper: false
       - name: Terraform Apply
         id:   apply
-        #env:
-          #TF_VAR_ec2_name:  "${{ github.event.inputs.ec2-name }}"
+        env:
+          TF_VAR_ec2_name:  "${{ github.event.inputs.ec2-name }}"
           #TF_VAR_ec2_type:  "${{ github.event.inputs.ec2_type }}"
           #TF_VAR_provider_region:  "${{ github.event.inputs.provider_region }}"
           
