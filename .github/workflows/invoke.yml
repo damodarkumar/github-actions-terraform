@@ -5,7 +5,7 @@ on:
     inputs:
       ec2-name:
         description: EC2 name
-        required: false
+        required: true
         type: string
 
         
