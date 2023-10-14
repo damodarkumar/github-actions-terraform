@@ -3,7 +3,7 @@ kind: Component
 metadata:
   annotations:
     github.com/project-slug: damodarkumar/github-actions-terraform
-    github.com/workflows: invoke.yml
+    github.com/workflows: damodarkumar/invoke.yml
   name: aws-infra-ec2-provision
 spec:
   type: service
@@ -18,5 +18,5 @@ spec:
           kind: GitHubAction
           name: invoke-terraform
           schema:
-            url: https://github.com/damodarkumar/github-actions-terraform/blob/main/.github/workflows/invoke.yml  # Replace with the actual URL of your workflow file
+            url: https://api.github.com/repos/damodarkumar/github-actions-terraform/actions/workflows/invoke.yml/dispatches  # Replace with the actual URL of your workflow file
             method: post
