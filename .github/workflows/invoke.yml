@@ -20,6 +20,7 @@ on:
         description: Provider region
         required: false
         type: choice
+        options:
         - eu-north-1
         - us-east-1
         - us-west-1
